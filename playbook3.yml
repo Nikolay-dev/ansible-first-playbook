@@ -1,0 +1,28 @@
+
+---
+- name: Install Nginx and Upload my  Web Page
+  hosts: all
+  become: yes
+
+
+  vars:
+    source_file: ./MyWebSite/index.html
+    destin_file: /var/www/html
+
+  tasks:
+  - name: Install Nginx Web Server
+    apt: name=nginx state=latest
+
+  - name: Copy my HomePage to Server
+    copy: src={{ source_file }} dest={{ destin_file }} mode=0555
+    notify: Restart Nginx
+
+  - name: Start WebServers  and Enable on boot
+    service: name=nginx state=started enabled=yes
+
+
+
+  handlers:
+  - name: Restart Nginx
+    service: name=nginx state=restarted
+
