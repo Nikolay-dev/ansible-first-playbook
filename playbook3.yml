@@ -1,6 +1,6 @@
 
 ---
-- name: Install Nginx and Upload my  Web Page
+- name: Install nginx and upload my web page
   hosts: all
   become: yes
 
@@ -10,19 +10,30 @@
     destin_file: /var/www/html
 
   tasks:
-  - name: Install Nginx Web Server
-    apt: name=nginx state=latest
+  - name: Check and Print Linux Version
+    debug: var=ansible_os_family
 
-  - name: Copy my HomePage to Server
+  - block:     #====Block for REDHAT====
+  
+       - name: Install Nginx RedHat
+         yum: name=nginx state=latest
+
+    when: ansible_os_family == "RedHat"
+
+  - block:    #====Block for UBUNTU====
+
+      - name: Install Nginx Debian
+        apt: name=nginx state=latest
+    when: ansible_os_family == "Debian"
+
+  - name: Copy myhomepage to servers
     copy: src={{ source_file }} dest={{ destin_file }} mode=0555
     notify: Restart Nginx
 
-  - name: Start WebServers  and Enable on boot
+  - name: Start WebServer and Enable from boot
     service: name=nginx state=started enabled=yes
-
 
 
   handlers:
   - name: Restart Nginx
     service: name=nginx state=restarted
-
