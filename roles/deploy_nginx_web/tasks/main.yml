@@ -1,0 +1,35 @@
+---
+# tasks file for deploy_nginx_web
+  - name: Check and Print Linux Version
+    debug: var=ansible_os_family
+
+  - block:     #====Block for REDHAT====
+
+       - name: Install Nginx RedHat
+         yum: name=nginx state=latest
+
+    when: ansible_os_family == "RedHat"
+
+  - block:    #====Block for UBUNTU====
+
+      - name: Install Nginx Debian
+        apt: name=nginx state=latest
+    when: ansible_os_family == "Debian"
+
+  - name: Generate index.html
+    template: src=index.html.j2 dest={{ destin_folder }}/index.html mode=0555
+    notify: Restart Nginx
+
+  - name: Copy myhomepage to servers
+    copy: src={{ item }} dest={{ destin_folder }}
+    loop:
+      - "css"
+      - "img"
+      - "blog.html"
+      - "work.html"
+      - "prepros-6.config"
+      - "js"
+    notify: Restart Nginx
+
+  - name: Start WebServer and Enable from boot
+    service: name=nginx state=started enabled=yes

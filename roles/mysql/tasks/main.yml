@@ -1,0 +1,25 @@
+---
+# tasks file for mysql
+
+- name: Install Mariadb-Server
+  apt: name={{ item }} state=latest
+  loop:
+   - mariadb-server
+   - mysql-common
+
+- name: Mariadb started and enabled from boot
+  service: name=mariadb state=started enabled=yes
+
+- name: Sets the root password
+  mysql_user: name=root password={{ mysql_root_password }} login_unix_socket=/var/run/mysqld/mysqld.sock
+
+- name: Create Database
+  mysql_db: name={{ dbname }} state=present login_user=root login_password={{ mysql_root_password }}
+
+- name: Create Mariadb User
+  mysql_user: name={{ dbuser }} password={{ dbpasswd }} priv={{ dbname }}.*:ALL host='%' state=present login_user=root login_password={{ mysql_root_password }} 
+
+#- name: Restart MariaDB Service
+#  template: src=my.cnf.j2 dest=/etc/my.cnf
+#  notify: restart mariadb
+#   - restart mariadb

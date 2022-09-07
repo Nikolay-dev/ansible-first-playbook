@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>Главная</title>
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/style-fonts.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+	<div class="wrapper">
+		<header class="header">
+	<div class="header__content">
+		<div class="header__menu menu">
+			<div class="menu__icon icon-menu">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+			<nav class="menu__body">
+				<ul class="menu__list">
+					<li><a href="index.html" class="menu__link">Main</a></li>
+					<li><a href="work.html" class="menu__link">Works</a></li>
+					<li><a href="blog.html" class="menu__link">Blog</a></li>
+					<li><a href="#" class="menu__link">Contact</a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</header>
+		<main class="page">
+			<section class="hello">
+				<div class="container">
+					<div class="hello__body">
+						<div class="hello__content">
+							<h1 class="hello__title title">Hi, I am {{ owner }}, <br> Web Development</h1>
+							<h2 class="hello__title title" color="red"> {{ansible_os_family}}</h2>
+							<div class="hello__text text">
+								Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
+							</div>
+							<a href="#" class="hello__btn btn">Download Resume</a>
+						</div>
+						<div class="hello__avatar">
+							<img src="img/IMG_0662.JPG" alt="Userimage">
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="post">
+				<div class="container">
+					<div class="post__header">
+						<div class="post__title subtitle">Recent posts</div>
+						<a href="blog.html" class="post__viewall">View all</a>
+					</div>
+					<div class="post__row">
+						<article class="post__column post-item">
+							<a href="#" class="post-item__title">Making a design system from scratch</a>
+							<div class="post-item__info">12 Feb 2020 <span>|</span>Design, Pattern</div>
+							<div class="post-item__text text">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</div>
+						</article>
+						<article class="post__column post-item">
+							<a href="#" class="post-item__title">Making a design system from scratch</a>
+							<div class="post-item__info">12 Feb 2020 <span>|</span>Design, Pattern</div>
+							<div class="post-item__text text">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</div>
+						</article>
+					</div>
+				</div>
+			</section>
+			<section class="feature">
+				<div class="container">
+					<div class="feature__title subtitle">Featured works</div>
+					<div class="feature__items works">
+						<article class="works__item">
+							<a href="article.html" class="works__image ibg">
+								<img src="img/design.jpg" alt="">
+							</a>
+							<div class="works__body">
+								<a href="article.html" class="works__title">Designing Dashboards</a>
+								<div class="works__info">
+									<div class="works__year">2020</div>
+									<div class="works__category">Dashboard</div>
+								</div>
+								<div class="works__text text">
+									Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
+								</div>
+							</div>
+						</article>
+						<article class="works__item">
+							<a href="work.html" class="works__image ibg">
+								<img src="img/02.jpg" alt="">
+							</a>
+							<div class="works__body">
+								<a href="" class="works__title">Vibrant Portraits of 2020</a>
+								<div class="works__info">
+									<div class="works__year">2020</div>
+									<div class="works__category">Dashboard</div>
+								</div>
+								<div class="works__text text">
+									Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
+								</div>
+							</div>
+						</article>
+						<article class="works__item">
+							<a href="#" class="works__image ibg">
+								<img src="img/03.jpg" alt="">
+							</a>
+							<div class="works__body">
+								<a href="" class="works__title">36 Days of Malayalam type</a>
+								<div class="works__info">
+									<div class="works__year">2020</div>
+									<div class="works__category">Dashboard</div>
+								</div>
+								<div class="works__text text">
+									Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
+								</div>
+							</div>
+						</article>
+					</div>
+				</div>
+			</section>
+		</main>
+		
+
+		<footer class="footer">
+	<div class='container'>
+		<div class="footer__social social">
+			<a href="#" class="social__item _icon-fb"></a>
+			<a href="#" class="social__item _icon-insta"></a>
+			<a href="#" class="social__item _icon-Linkedin"></a>
+			<a href="#" class="social__item _icon-twit"></a>
+		</div>
+		<div class="footer__copy">Copyright ©2020 All rights reserved </div>
+	</div>
+</footer>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="js/main.js"></script>
+
+
+</body>
+</html>

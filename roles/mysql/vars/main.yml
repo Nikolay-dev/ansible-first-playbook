@@ -1,0 +1,6 @@
+---
+# vars file for mysql
+mysql_root_password: MYSQL_PASSWORD
+dbname: TESTDB
+dbuser: userdb
+dbpasswd: 123456

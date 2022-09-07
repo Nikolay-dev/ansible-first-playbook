@@ -1,0 +1,22 @@
+---
+# tasks file for nginx
+
+  - name: Update Packages
+    apt: update_cache=yes state=latest force_apt_get=yes
+  - name: Install Nginx
+    apt: name=nginx update_cache=yes state=latest
+
+  - name: Start nginx and Enabled from boot
+    service: name=nginx state=started enabled=yes
+
+  - name: Temlate nginx conf
+    template: src=nginx.conf.j2 dest=/etc/nginx/sites-available/{{ http_conf }}
+    notify: Restart Nginx
+
+  - name: Enables new site
+    file: src=/etc/nginx/sites-available/{{ http_conf }} dest=/etc/nginx/sites-enabled/{{ http_conf }} state=link
+    notify: Restart Nginx
+
+  - name: Remove default conf nginx
+    file: path=/etc/nginx/sites-enabled/default state=absent
+    notify: Restart Nginx

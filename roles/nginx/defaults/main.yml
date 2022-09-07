@@ -1,0 +1,6 @@
+---
+# defaults file for nginx
+
+http_host: "nikmel.com"
+http_conf: "nikmel.conf"
+http_port: "80"

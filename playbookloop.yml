@@ -1,0 +1,22 @@
+
+---
+- name: Loops playbook
+  hosts: all
+  become: yes
+
+
+  tasks:
+  - name: Say Hello to ALL
+    debug: msg="Hello {{ item }}"
+    loop:
+      - "Vasya"
+      - "Petya"
+      - "Olya"
+
+  - name: Install many packages
+    apt: name={{ item }} state=latest
+    loop:
+      - python
+      - tree
+      - htop
+      - net-tools
